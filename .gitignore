@@ -1,0 +1,19 @@
+# Ignorer les fichiers d'environnement
+.env
+survEnv
+
+# Ignorer les fichiers de base de données locales
+*.sqlite3
+
+# Ignorer les fichiers de cache et les fichiers temporaires
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorer les dossiers de l'IDE (comme VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Ignorer les dépendances (si elles sont installées dans un dossier spécifique)
+venv/
