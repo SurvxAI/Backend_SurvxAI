@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user'
+    'users',
+    'tasks',
+    'blockchain',
+    'governance',
+
 ]
 
 MIDDLEWARE = [
@@ -80,8 +84,8 @@ WSGI_APPLICATION = 'backend_SurvxAI.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    
-     'default': {
+
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv('DATABASE_NAME'),
         'USER': os.getenv('DATABASE_USER'),
@@ -89,6 +93,14 @@ DATABASES = {
         'HOST': os.getenv('DATABASE_HOST', 'localhost'),
         'PORT': os.getenv('DATABASE_PORT', '5432'),
     }
+}
+
+AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
 }
 
 
@@ -132,3 +144,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+XRPL_NETWORK = {
+    'TEST': {
+        'URL': 'https://s.altnet.rippletest.net:51234',
+        'EXPLORER': 'https://testnet.xrpl.org'
+    },
+    'MAIN': {
+        'URL': 'https://xrplcluster.com',
+        'EXPLORER': 'https://livenet.xrpl.org'
+    }
+}
