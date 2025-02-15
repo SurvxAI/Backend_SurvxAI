@@ -1,4 +1,3 @@
-# users/managers.py
 from django.contrib.auth.models import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from xrpl.wallet import generate_faucet_wallet

@@ -1,4 +1,3 @@
-# governance/models.py
 from django.db import models
 from users.models import User
 import uuid
@@ -19,6 +18,10 @@ class Governance(models.Model):
 
 
 class Vote(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='votes')
     proposal = models.ForeignKey(
